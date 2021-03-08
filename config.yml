@@ -2,6 +2,9 @@ baseURL: "https://mrleidesen.github.io"
 title: MrLeiDeSen's Blog
 paginate: 5
 theme: PaperMod
+defaultContentLanguage: "zh"
+defaultContentLanguageInSubdir: true
+
 
 enableRobotsTXT: true
 buildDrafts: false
@@ -25,13 +28,13 @@ params:
     defaultTheme: auto # dark, light
     disableThemeToggle: false
 
-    ShowReadingTime: true
-    ShowShareButtons: true
+    ShowReadingTime: false
+    ShowShareButtons: false
     disableSpecial1stPost: false
     comments: false
     hidemeta: false
-    showtoc: false
-    tocopen: false
+    showtoc: true
+    tocopen: true
 
     assets:
         # disableHLJS: true # to disable highlight.js
