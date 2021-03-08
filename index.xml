@@ -7,13 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 08 Mar 2021 15:30:51 +0800</lastBuildDate><atom:link href="https://mrleidesen.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>第一篇博客文</title>
+      <title>前端技术一些踩坑记录</title>
       <link>https://mrleidesen.github.io/posts/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87/</link>
       <pubDate>Mon, 08 Mar 2021 15:30:51 +0800</pubDate>
       
       <guid>https://mrleidesen.github.io/posts/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87/</guid>
-      <description>测试 测试一下内容写的怎么样
-测试一下是否更新正常</description>
+      <description>编辑器相关（VSCode） 实用插件  Beautify 格式化代码 Bracket Pair Colorizer 括号颜色 Path Intellisense 路径智能提示 Vetur Vue提示插件 ES6 ES6语法提示 Open in Browser 在浏览器中打开  回到顶部
+React开启JSX支持 打开settings，然后在右上角打开settings.json，配置如下：
+&amp;#34;emmet.includeLanguages&amp;#34;: { &amp;#34;javascript&amp;#34;: &amp;#34;javascriptreact&amp;#34; } 回到顶部
+NPM(Yarn)相关 &amp;ndash;save和&amp;ndash;save-dev的区别 npm install --save安装的包是运行时的依赖，比如axios
+npm install --save-dev安装的包仅仅是在开发阶段的依赖，比如less\sass等
+回到顶部
+npm在国内加快下载速度  可以使用cnpm，安装方法npm install -g cnpm --registry=https://registry.npm.taobao.org(不推荐，有时候会出问题) 文档 安装yarn来代替，直接下载或者在npm中下载，推荐直接下载安装 (推荐)  # 切换淘宝源 npx nrm use taobao # 切换回来 npx nrm use npm 回到顶部
+框架（Vue, React等）相关 Vue监听 Vue在mounted()中添加监听事件之后，记得在destroyed()中移除监听，特别是监听滚动事件
+回到顶部
+Vue引入iView之后使用Col标签后VSCode会报错 解决方法：在settings中搜索vetur.validation.template，关闭或者改成false之后重启vscode即可解决</description>
     </item>
     
   </channel>
