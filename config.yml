@@ -61,13 +61,13 @@ params:
               url: tags
 
     # home-info mode
-    # homeInfoParams:
-    #     Title: "你好 \U0001F44B"
-    #     Content: 欢迎来到我的博客
+    homeInfoParams:
+        Title: "欢迎来到我的博客 \U0001F44B"
+        Content: 一起来学习前端技术吧！如果哪里写得不对，欢迎指出。
 
-    # socialIcons:
-    #     - name: github
-    #       url: "https://github.com/mrleidesen"
+    socialIcons:
+        - name: github
+          url: "https://github.com/mrleidesen"
 
     cover:
         hidden: true # hide everywhere but not in structured data
