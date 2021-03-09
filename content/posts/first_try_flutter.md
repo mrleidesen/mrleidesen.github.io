@@ -1,7 +1,7 @@
 ---
 title: "第一次尝试Flutter"
 date: 2021-03-09T15:11:40+08:00
-draft: true
+draft: false
 ---
 
 ## 前言
@@ -33,7 +33,7 @@ buildscript {
     }
 }
 ```
-然后重新运行一下`main.dart`就能跑了~~（万恶的墙啊）~~
+然后重新运行一下`main.dart`就能跑了<strike>（万恶的墙啊）</strike>
 
 ## 总结
 以上就是安装到运行的一些问题，等初步写个Demo出来熟悉了，再写一篇
