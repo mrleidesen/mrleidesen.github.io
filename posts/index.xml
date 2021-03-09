@@ -5,7 +5,22 @@
     <link>https://mrleidesen.github.io/posts/</link>
     <description>Recent content in Posts on MrLeiDeSen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 08 Mar 2021 15:30:51 +0800</lastBuildDate><atom:link href="https://mrleidesen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 09 Mar 2021 15:11:40 +0800</lastBuildDate><atom:link href="https://mrleidesen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>第一次尝试Flutter</title>
+      <link>https://mrleidesen.github.io/posts/first_try_flutter/</link>
+      <pubDate>Tue, 09 Mar 2021 15:11:40 +0800</pubDate>
+      
+      <guid>https://mrleidesen.github.io/posts/first_try_flutter/</guid>
+      <description>前言 听闻Flutter2.0很强，作为前端刚好对APP有点兴趣，整起来试试
+环境 公司用的是Windows，先下载Flutter的SDK，迫于墙，所以在国内站下载，地址
+跟着配置，我是用VSCode开发的，所以下面都是基于VSCode
+创建项目和启动项目 创建项目还好，直接Flutter插件创建就好了，但是使用模拟器启动的时候就遇到问题了，会一直卡在
+Running Gradle task &#39;assembleDebug&#39;... google了一下大家都说是墙的问题，然后改了一下阿里的源，直接起飞！下面和大家讲一下如何修改。
+首先找到Flutter SDK的目录，然后找到packages\flutter_tools\gradle\flutter.gradle这个文件，修改以下内容：
+buildscript { repositories { // 下面两行是注释的，maven开头的是新增的 // google() // jcenter() maven { url &#39;https://maven.aliyun.com/repository/google&#39; } maven { url &#39;https://maven.aliyun.com/repository/jcenter&#39; } maven { url &#39;http://maven.aliyun.com/nexus/content/groups/public&#39; } } dependencies { classpath &#39;com.android.tools.build:gradle:4.1.0&#39; } } 然后重新运行一下main.dart就能跑了（万恶的墙啊）总结 以上就是安装到运行的一些问题，等初步写个Demo出来熟悉了，再写一篇</description>
+    </item>
+    
     <item>
       <title>前端技术一些踩坑记录</title>
       <link>https://mrleidesen.github.io/posts/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E4%B8%80%E4%BA%9B%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/</link>
