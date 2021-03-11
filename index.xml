@@ -5,7 +5,21 @@
     <link>https://mrleidesen.github.io/</link>
     <description>Recent content on MrLeiDeSen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 09 Mar 2021 15:11:40 +0800</lastBuildDate><atom:link href="https://mrleidesen.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Mar 2021 13:53:48 +0800</lastBuildDate><atom:link href="https://mrleidesen.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>第二次尝试Flutter</title>
+      <link>https://mrleidesen.github.io/posts/flutter_try_second/</link>
+      <pubDate>Thu, 11 Mar 2021 13:53:48 +0800</pubDate>
+      
+      <guid>https://mrleidesen.github.io/posts/flutter_try_second/</guid>
+      <description>前言 学了几天flutter，感觉写起来还是很香的，比原生开发速度快很多，不过以前没接触过安卓开发，思维还在Web开发上，记录一下
+布局 一般是使用Column和Row以及Container来布局比较多，还有Expanded，类似与flex: 1这个效果，能把剩余的空间补充满。
+在使用的时候还遇到了按钮宽度需要100%的情况，2.0废弃了1.0一些组件，按钮一般使用ElevatedButton，但是没法设置宽高。网上查了一下用SizedBox来当它的父容器，这样它就会跟着父容器的宽高走了，需要宽度100%的话就是double.infinity
+路由 路由的话一般定义在MaterialApp里面，如下：
+return MaterialApp( title: &amp;#39;title&amp;#39;, initialRoute: &amp;#34;/home&amp;#34;, // 默认的路由  routes: { &amp;#34;/home&amp;#34;: (context) =&amp;gt; MyHome(), // 每个路由需要默认传参context  &amp;#34;/login&amp;#34;: (context) =&amp;gt; MyLogin() }, ); 导航的话常用以下几个
+Navigator.pushNamed(context, &amp;#34;/login&amp;#34;); // 跳转到/login页面 Navigator.pop(context); // 返回上一级，可传第二个参数携带回上一级 Navigator.pushReplacementNamed(context, &amp;#34;/login&amp;#34;); //重定向至/login页面，就没法返回到上一级页面了 总结 如果是Web开发，可能思想上会有点不一样，多写写就能领悟到了。用Flutter进行快速开发的话还是很香的，毕竟只是为了出成品，速度足够快，也不用管性能优化。</description>
+    </item>
+    
     <item>
       <title>第一次尝试Flutter</title>
       <link>https://mrleidesen.github.io/posts/first_try_flutter/</link>
