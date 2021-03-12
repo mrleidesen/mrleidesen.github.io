@@ -12,6 +12,9 @@ draft: false
 
 在使用的时候还遇到了按钮宽度需要100%的情况，2.0废弃了1.0一些组件，按钮一般使用`ElevatedButton`，但是没法设置宽高。网上查了一下用`SizedBox`来当它的父容器，这样它就会跟着父容器的宽高走了，需要宽度100%的话就是`double.infinity`
 
+## 如何设置width:100%
+目前发现有`double.infinity`和`MediaQuery.of(context).size.width`。后续发现的话继续补充
+
 ## 路由
 路由的话一般定义在`MaterialApp`里面，如下：
 ```dart
