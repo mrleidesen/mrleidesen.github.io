@@ -17,7 +17,7 @@ draft: false
 Running Gradle task 'assembleDebug'...
 ```
 google了一下大家都说是墙的问题，然后改了一下阿里的源，直接起飞！下面和大家讲一下如何修改。  
-首先找到`Flutter SDK`的目录，然后找到`packages\flutter_tools\gradle\flutter.gradle`这个文件，修改以下内容：
+首先找到项目下`android/build.gradle`这个文件，修改以下内容：
 ```
 buildscript {
     repositories {
@@ -27,9 +27,6 @@ buildscript {
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/jcenter' }
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.0'
     }
 }
 ```
