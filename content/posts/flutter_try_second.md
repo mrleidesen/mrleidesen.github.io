@@ -34,5 +34,63 @@ Navigator.pop(context); // 返回上一级，可传第二个参数携带回上�
 Navigator.pushReplacementNamed(context, "/login"); //重定向至/login页面，就没法返回到上一级页面了
 ```
 
+## 父子组件传参
+* 父组件调用子组件
+```dart
+// 定义一个全局key
+GlobalKey<_MyMapState> mapKey = GlobalKey();
+
+// 子组件
+class MyMap extends StatefulWidget {
+  MyMap({Key key}) : super(key: key);
+  @override
+  _MyMapState createState() => _MyMapState();
+}
+class _MyMapState extends State<MyMap> {
+    // ...
+    void getItem() {
+        print('get');
+    }
+}
+
+// 父组件
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+        children: [
+            TextButton(
+                child: Text('Click'),
+                onPressed: () {
+                    // 调用子组件方法
+                    mapKey.currentState.getItem();
+                }
+            ),
+            // 在引入子组件时，传入全局key
+            MyMap(key: mapKey)
+        ]
+    );
+  }
+}
+```
+* 子组件调用父组件
+```dart
+// 子组件
+// 父组件通过传参传入方法，子组件调用
+class MyMap extends StatefulWidget {
+  final changeParent;
+  MyMap({Key key, this.changeParent}) : super(key: key);
+  @override
+  _MyMapState createState() => _MyMapState();
+}
+class _MyMapState extends State<MyMap> {
+    // ...
+    void getItem() {
+        // 调用父组件
+        widget.changeParent();
+    }
+}
+```
+
 ## 总结
 如果是Web开发，可能思想上会有点不一样，多写写就能领悟到了。用Flutter进行快速开发的话还是很香的，毕竟只是为了出成品，速度足够快，也不用管性能优化。
