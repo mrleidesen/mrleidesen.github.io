@@ -92,5 +92,72 @@ class _MyMapState extends State<MyMap> {
 }
 ```
 
+### 滚动监听
+在Flutter中使用滚动监听，首先在定义一个`ScrollController`以及监听
+```dart
+ScrollController _controller = new ScrollController();
+
+@override
+void initState() {
+super.initState();
+    // 在init生命周期中
+    // controller添加监听
+    _controller.addListener(_listenController);
+}
+
+@override
+void dispose() {
+    // 在dispose生命周期中销毁controller
+    _controller.dispose();
+    super.dispose();
+}
+
+// 监听方法
+void _listenController() {
+    // 获取当前滚动组件的最大高度
+    final maxHeight = _controller.position.maxScrollExtent;
+    // 当前滚动的高度
+    final nowScrollPosition = _controller.offset;
+    // 根据需要进行判断
+    // 此处计算百分比超过95，则加载下一页内容
+    if ((nowScrollPosition / maxHeight) * 100 >= 95) {
+      pageNum += 1;
+      _fetchImages();
+    }
+}
+```
+之后将`Controller`传给`ListView`，记住`ListView`嵌套在`Scrollbar`中
+```dart
+return Scrollbar(
+    child: ListView.builder(
+        padding: EdgeInsets.all(16),
+        // 加入controller
+        controller: _controller,
+        itemExtent: 230,
+        itemCount: _images.length,
+        itemBuilder: (context, index) {
+            final item = _images[index];
+            final id = item["id"];
+            final author = item['author'];
+            final url = "https://picsum.photos/id/$id/200/200";
+
+            return Container(
+            width: 300,
+            height: 230,
+            child: Column(
+                children: [
+                Image.network(
+                    url,
+                    width: 300,
+                    height: 200,
+                    fit: BoxFit.cover,
+                ),
+                Text(author)
+                ],
+            ),
+            );
+        }));
+```
+
 ## 总结
 如果是Web开发，可能思想上会有点不一样，多写写就能领悟到了。用Flutter进行快速开发的话还是很香的，毕竟只是为了出成品，速度足够快，也不用管性能优化。
