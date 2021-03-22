@@ -31,6 +31,7 @@ dependencies {
 }
 ```
 * 到这配置SDK这一步就完成了
+* 不过还是有可能会出现网络异常的情况，没找到其他解决方案，只能多试试或者代理
 
 ### 集成Flutter插件
 * 在flutter项目中引入`amap_flutter_map: ^1.0.0`(版本号可不填，默认最新)
@@ -84,6 +85,49 @@ class _MyMapState extends State<MyMap> {
 }
 ```
 * 之后调用`MyMap`这个widget就可以成功引入地图啦
+
+### Markers
+生成点标记和印象里Web端的操作不同，这边需要提前在地图上定义好一个Marker的集合
+```dart
+// 提前定义
+final Map<String, Marker> _initMarkerMap = <String, Marker>{};
+
+final AMapWidget map = AMapWidget(
+  apiKey: amapApiKeys,
+  onMapCreated: onMapCreated,
+  // 使用
+  markers: Set<Marker>.of(_initMarkerMap.values),
+  initialCameraPosition:
+      CameraPosition(target: LatLng(28.000575, 120.672111), zoom: 15),
+);
+```
+后续的增删改Marker通过`setState`来实现
+```dart
+void createMarkers(LatLng target) {
+  // 创建marker时没法携带id
+  // 创建后会自动携带一个随机生成的id
+  final Marker marker = Marker(
+      position: target);
+
+  setState(() {
+    // 通过id来判断是新marker还是旧marker
+    _initMarkerMap[marker.id] = marker;
+  });
+}
+```
+不过大部分情况下我们需要修改marker的位置，所以我们会重新生成一个`Marker`，但是此时marker的id会重新生成，建议各位在初始化各个点位前，自己赋值在`_initMarkerMap`中
+```dart
+void createMarkers(LatLng target) {
+  final Marker marker = Marker(
+      position: target);
+
+  setState(() {
+    // 自己赋值一个000的id
+    // 后续修改这个marker，只需要找到000就可以了
+    _initMarkerMap["000"] = marker;
+  });
+}
+```
 
 ### 小结
 * 通过`Gradle`的方式来引入SDK可能会因为网络问题导致打包慢，可以耐心等等，只要没报错，应该是正常在跑的，实在觉得慢可以通过拷贝的方式。
