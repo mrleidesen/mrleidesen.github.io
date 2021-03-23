@@ -159,5 +159,43 @@ return Scrollbar(
         }));
 ```
 
+## 文本
+输入框的话是通过`TextField`这个Widget来的
+```dart
+return TextField(
+    onChanged: (text) {
+        // 获取每次更改的值
+        print(text);
+    },
+    decoration: InputDecoration(), // 修改输入框样式
+);
+```
+如果我们需要清空文本框，可能就要用到controller
+```dart
+final _controller = TextEditingController();
+
+// 清空输入框
+void _clearTextField() {
+    _controller.clear();
+}
+
+// 获取输入框的内容
+void _getTextField() {
+    print(_controller.text);
+}
+
+// 生命周期结束时销毁controller
+@override
+void dispose() {
+    _controller.dispose();
+    super.dispose();
+}
+
+return TextField(
+    controller: _controller
+);
+```
+
 ## 总结
-如果是Web开发，可能思想上会有点不一样，多写写就能领悟到了。用Flutter进行快速开发的话还是很香的，毕竟只是为了出成品，速度足够快，也不用管性能优化。
+如果是Web开发，可能思想上会有点不一样，多写写就能领悟到了。用Flutter进行快速开发的话还是很香的，毕竟只是为了出成品，速度足够快。不过在原生操作上还是有不少问题，毕竟只是节约成本的一个方法，如果真正投入使用，可能最终还得转到原生开发上去。  
+如果有时候代码写得正确，但是莫名其妙报错，有可能是flutter热更新的问题，试着重新启动一下，可能就好了。
