@@ -5,7 +5,21 @@
     <link>https://mrleidesen.github.io/posts/</link>
     <description>Recent content in Posts on MrLeiDeSen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 17 Mar 2021 16:19:46 +0800</lastBuildDate><atom:link href="https://mrleidesen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 Mar 2021 08:41:01 +0800</lastBuildDate><atom:link href="https://mrleidesen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>安卓WebView同Javascript通信</title>
+      <link>https://mrleidesen.github.io/posts/webview_to_js/</link>
+      <pubDate>Fri, 26 Mar 2021 08:41:01 +0800</pubDate>
+      
+      <guid>https://mrleidesen.github.io/posts/webview_to_js/</guid>
+      <description>前言 最近项目里有需要用到安卓WebView和JS通信，毕竟不是安卓开发，就去了解了一下。
+环境 用的Kotlin的原生和Vue3
+创建项目 首先开一个原生安卓的Empty模板，在activity_main.xml中嵌入一个WebView
+&amp;lt;WebView android:id=&amp;#34;@+id/webview&amp;#34; android:layout_width=&amp;#34;match_parent&amp;#34; android:layout_height=&amp;#34;match_parent&amp;#34; /&amp;gt; 在AndroidManifest.xml文件中写入网络权限配置，如果需要相机之类的权限，加入后再动态申请，这里只演示通信
+&amp;lt;manifest&amp;gt; // ... &amp;lt;uses-permission android:name=&amp;#34;android.permission.INTERNET&amp;#34; /&amp;gt; // ... &amp;lt;/manifest&amp;gt; 配置Kotlin文件 在项目下的MainActivity.kt中写入
+override fun onCreate(savedInstanceState: Bundle?) { super.onCreate(savedInstanceState) setContentView(R.layout.activity_main) val webView = setWebViewSettings() } @SuppressLint(&amp;#34;SetJavascriptEnabled&amp;#34;) private fun setWebViewSettings(): WebView { // 找到webview的控件  val myWebView: WebView = findViewById(R.id.webview) // 启用js  myWebView.settings.javaScriptEnabled = true // 与js交互，js中就用client开始调用  myWebView.addJavascriptInterface(UserInfoInterface(this), &amp;#34;client&amp;#34;) // 防止webview跳转到APP外的浏览器  myWebView.webViewClient = object : WebViewClient() { override fun shouldOverrideUrlLoading(view: WebView?</description>
+    </item>
+    
     <item>
       <title>在Flutter2.0中使用高德地图</title>
       <link>https://mrleidesen.github.io/posts/amap_in_flutter/</link>
