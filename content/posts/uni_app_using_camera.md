@@ -1,5 +1,5 @@
 ---
-title: "Uni_app_using_camera"
+title: "uni-app安卓调用前置摄像头并自动拍照"
 date: 2021-04-19T11:12:39+08:00
 draft: false
 ---
