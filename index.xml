@@ -5,7 +5,17 @@
     <link>https://mrleidesen.github.io/</link>
     <description>Recent content on MrLeiDeSen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 19 Apr 2021 11:12:39 +0800</lastBuildDate><atom:link href="https://mrleidesen.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Apr 2021 09:13:56 +0800</lastBuildDate><atom:link href="https://mrleidesen.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vue2对比Vue3组合式API写法</title>
+      <link>https://mrleidesen.github.io/posts/vue2_to_vue3/</link>
+      <pubDate>Sun, 25 Apr 2021 09:13:56 +0800</pubDate>
+      
+      <guid>https://mrleidesen.github.io/posts/vue2_to_vue3/</guid>
+      <description>前言 Vue3已经基本上成熟了，很多开源项目也开始往Vue3上迁移了，新增的组合式API确实非常好用，这里稍微写一下Vue2原本模式和Vue3组合式API的写法有哪些不同
+对比 Data和Methods  Vue2  export default { data: () =&amp;gt; ({ count: 0, user: { name: &amp;#39;Jack&amp;#39;, age: 23 } }), methods: { onClick() { this.count++ } } }  Vue3  import { ref, reactive } from &amp;#39;vue&amp;#39; export default { setup() { const count = ref(0) // 定义普通的类型  const user = reactive({ name: &amp;#39;Jack&amp;#39;, age: 23 }) // 定义对象  const onClick = () =&amp;gt; { count.</description>
+    </item>
+    
     <item>
       <title>uni-app安卓调用前置摄像头并自动拍照</title>
       <link>https://mrleidesen.github.io/posts/uni_app_using_camera/</link>
