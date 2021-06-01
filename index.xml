@@ -5,7 +5,23 @@
     <link>https://mrleidesen.github.io/</link>
     <description>Recent content on MrLeiDeSen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 25 Apr 2021 09:13:56 +0800</lastBuildDate><atom:link href="https://mrleidesen.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Jun 2021 10:01:22 +0800</lastBuildDate><atom:link href="https://mrleidesen.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vue3踩坑经历</title>
+      <link>https://mrleidesen.github.io/posts/vue3_issues/</link>
+      <pubDate>Tue, 01 Jun 2021 10:01:22 +0800</pubDate>
+      
+      <guid>https://mrleidesen.github.io/posts/vue3_issues/</guid>
+      <description>ref 在setup()中，如果你声明了一个ref变量
+setup() { const activeId = ref(0) } 除了重新赋值需要加上.value，其他取值的情况下也要加上.value
+const activeId = ref(1) const list = [{ name: &amp;#39;jack&amp;#39; }] // 正常赋值 activeId.value = 0 // 以下错误的取值方式 // console.log(list[activeId])  // 正确方式 console.log(list[activeId.value]) // { name: &amp;#39;jack&amp;#39; } 如果你在reactive中也赋值了ref，那么在取值的时候，也要使用.value
+reactive 正常使用，我们一般用对象
+const book = reactive({ author: &amp;#39;jack&amp;#39; }) 但有时候我们要用数组
+const books = reactive([{ author: &amp;#39;jack&amp;#39; }]) 响应式不能直接赋值，如果是对象，我们得修改字段，或者使用Object.assign
+// 方法一 book.author = &amp;#34;jojo&amp;#34; //方法二 Object.assign(book, {author: &amp;#39;jojo&amp;#39;}) 修改数组的话，同样得修改原始数据的，比如splice, push等方法
+// 方法一 books[0] = {author: &amp;#34;jojo&amp;#34;} // 方法二 books.</description>
+    </item>
+    
     <item>
       <title>Vue2对比Vue3组合式API写法</title>
       <link>https://mrleidesen.github.io/posts/vue2_to_vue3/</link>
