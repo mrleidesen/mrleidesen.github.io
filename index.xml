@@ -5,7 +5,18 @@
     <link>https://mrleidesen.github.io/</link>
     <description>Recent content on MrLeiDeSen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 01 Jun 2021 10:01:22 +0800</lastBuildDate><atom:link href="https://mrleidesen.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Jun 2021 08:59:30 +0800</lastBuildDate><atom:link href="https://mrleidesen.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>React Context用法</title>
+      <link>https://mrleidesen.github.io/posts/react_context/</link>
+      <pubDate>Tue, 15 Jun 2021 08:59:30 +0800</pubDate>
+      
+      <guid>https://mrleidesen.github.io/posts/react_context/</guid>
+      <description>创建一个context 首先需要通过React.createContext定义一个context，一下的定义需要在函数外定义
+// ./src/Store.js const StoreContext = React.createContext() 如果你使用TS，那么createContext中需要传入一个默认值
+// ./src/Store.tsx interface StoreProps { count: number setCount: Function } const StoreContext = React.createContext&amp;lt;StoreProps&amp;gt;({} as StoreProps) // 如果不加 &amp;#39;as StoreProps&amp;#39;,因为里面的参数都是必填，会报错 // 或者传入{ count: 0, setCount: () =&amp;gt; {} }这样当做默认值 // 也可以把类型定义为 &amp;#39;StoreProps | null&amp;#39;，然后传入null，但不是很推荐 创建一个Provider export default function Store({ children }) { const [count, setCount] = useState(0) return ( &amp;lt;StoreContext.Provider value={{ count, setCount }} &amp;gt; {children} &amp;lt;/StoreContext.Provider&amp;gt; ) } 使用useContext // .</description>
+    </item>
+    
     <item>
       <title>Vue3踩坑经历</title>
       <link>https://mrleidesen.github.io/posts/vue3_issues/</link>
