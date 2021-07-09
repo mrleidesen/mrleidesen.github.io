@@ -5,7 +5,22 @@
     <link>https://mrleidesen.github.io/</link>
     <description>Recent content on MrLeiDeSen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 15 Jun 2021 08:59:30 +0800</lastBuildDate><atom:link href="https://mrleidesen.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 Jul 2021 13:33:02 +0800</lastBuildDate><atom:link href="https://mrleidesen.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在项目中引入ESLint</title>
+      <link>https://mrleidesen.github.io/posts/eslint_in_project/</link>
+      <pubDate>Fri, 09 Jul 2021 13:33:02 +0800</pubDate>
+      
+      <guid>https://mrleidesen.github.io/posts/eslint_in_project/</guid>
+      <description>前言 在项目开发过程中，随着团队成员的增加以及项目体量的增大，我们需要更加规范我们的代码，除了一些概念性的规范(如 Airbnb 规范)，我们还需要通过引入 ESLint 来自动化规范我们的代码。
+引入 首先确保我们的项目中使用 Webpack，先引入ESLint Webpack Plugin
+yarn add eslint-webpack-plugin -D # or npm install eslint-webpack-plugin --save-dev 之后在 Webpack 配置中引入
+const ESLintPlugin = require(&amp;#39;eslint-webpack-plugin&amp;#39;) // ... module.exports = { // ...  plugins: [ // ...  new ESLintPlugin() // ...  ] // ... } 如果使用的编辑器是 VSCode，记得安装插件 ESLint
+生成规范 ESLint 会通过本地文件 .eslintrc.js 来判断规则，我们可以自己编写规则，也可以直接引入现成的规则，比如: Airbnb, Standard 等。
+通过命令生成文件
+npx eslint --init # 如果 eslint 全局安装了，可以如下 eslint --init 根据提示来进行选择就可以了，选择好之后再运行项目，就会发现项目会报一些 error/warning 了，这些都是正常的，我们可以通过命令行 --fix 来修复一些简单的规范问题</description>
+    </item>
+    
     <item>
       <title>React Context用法</title>
       <link>https://mrleidesen.github.io/posts/react_context/</link>
