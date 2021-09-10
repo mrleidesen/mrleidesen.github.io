@@ -5,7 +5,26 @@
     <link>https://mrleidesen.github.io/</link>
     <description>Recent content on MrLeiDeSen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 28 Aug 2021 20:11:40 +0800</lastBuildDate><atom:link href="https://mrleidesen.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Sep 2021 16:30:48 +0800</lastBuildDate><atom:link href="https://mrleidesen.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>微信网页跳转小程序</title>
+      <link>https://mrleidesen.github.io/posts/%E5%BE%AE%E4%BF%A1%E7%BD%91%E9%A1%B5%E8%B7%B3%E8%BD%AC%E5%B0%8F%E7%A8%8B%E5%BA%8F/</link>
+      <pubDate>Thu, 09 Sep 2021 16:30:48 +0800</pubDate>
+      
+      <guid>https://mrleidesen.github.io/posts/%E5%BE%AE%E4%BF%A1%E7%BD%91%E9%A1%B5%E8%B7%B3%E8%BD%AC%E5%B0%8F%E7%A8%8B%E5%BA%8F/</guid>
+      <description>前言 这几天在写微信 H5 的项目，有一个功能是网页跳转小程序，遇到了非常坑的问题，因此记录一下
+坑点 开始使用 要跳转小程序，就要用到微信 SDK 的开放标签 wx-open-launch-weapp
+我们需要在 jssdk 中注册
+wx.config({ // ... 其他配置按照需求配置  openTagList: [&amp;#34;wx-open-launch-weapp&amp;#34;] // 填入这个玩意儿 }) 正常使用下，我们就是这么用
+&amp;lt;wx-open-launch-weapp id=&amp;#34;launch-btn&amp;#34; username=&amp;#34;gh_xxxxxxxx&amp;#34; path=&amp;#34;pages/home/index?user=123&amp;amp;action=abc&amp;#34; &amp;gt; &amp;lt;!-- script 标签不能省略 --&amp;gt; &amp;lt;script type=&amp;#34;text/wxtag-template&amp;#34;&amp;gt; &amp;lt;button&amp;gt;打开小程序&amp;lt;/button&amp;gt; &amp;lt;/script&amp;gt; &amp;lt;/wx-open-launch-weapp&amp;gt; 顺便吐槽，username 这个字段是小程序的原始ID，太蠢了&amp;hellip;
+好，按照以上操作，最简单版本的跳转可以了，但是问题来了，如果你需要非常复杂的样式呢？
+踩坑 根据官方文档说明
+如果所使用的标签允许提供插槽，由于插槽中模版的样式是和页面隔离的，因此需要注意在插槽中定义模版的样式。 意思是，写在这个标签里的模板样式，是引用不到外界的，你要么写内联样式，要么在 script 里写 style 标签。
+所以当你需要在现成的一个按钮外加这么一个标签，那么你的样式可能就会混乱，甚至标签不见。
+比如
+&amp;lt;style&amp;gt; .btn { color: red; } &amp;lt;/style&amp;gt; &amp;lt;wx-open-launch-weapp id=&amp;#34;launch-btn&amp;#34; username=&amp;#34;gh_xxxxxxxx&amp;#34; path=&amp;#34;pages/home/index?user=123&amp;amp;action=abc&amp;#34; &amp;gt; &amp;lt;!-- script 标签不能省略 --&amp;gt; &amp;lt;script type=&amp;#34;text/wxtag-template&amp;#34;&amp;gt; &amp;lt;style&amp;gt; .</description>
+    </item>
+    
     <item>
       <title>国内环境配置 Golang</title>
       <link>https://mrleidesen.github.io/posts/first_try_go/</link>
