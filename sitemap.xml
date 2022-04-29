@@ -3,10 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://mrleidesen.github.io/</loc>
-    <lastmod>2022-02-07T17:33:30+08:00</lastmod>
+    <lastmod>2022-04-29T17:09:30+08:00</lastmod>
   </url><url>
     <loc>https://mrleidesen.github.io/posts/</loc>
-    <lastmod>2022-02-07T17:33:30+08:00</lastmod>
+    <lastmod>2022-04-29T17:09:30+08:00</lastmod>
+  </url><url>
+    <loc>https://mrleidesen.github.io/posts/umi_request_download/</loc>
+    <lastmod>2022-04-29T17:09:30+08:00</lastmod>
   </url><url>
     <loc>https://mrleidesen.github.io/posts/wsl_proxy/</loc>
     <lastmod>2022-02-07T17:33:30+08:00</lastmod>
