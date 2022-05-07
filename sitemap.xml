@@ -2,11 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://mrleidesen.github.io/posts/html2canvas/</loc>
+    <lastmod>2022-05-07T21:38:30+08:00</lastmod>
+  </url><url>
     <loc>https://mrleidesen.github.io/</loc>
-    <lastmod>2022-04-29T17:09:30+08:00</lastmod>
+    <lastmod>2022-05-07T21:38:30+08:00</lastmod>
   </url><url>
     <loc>https://mrleidesen.github.io/posts/</loc>
-    <lastmod>2022-04-29T17:09:30+08:00</lastmod>
+    <lastmod>2022-05-07T21:38:30+08:00</lastmod>
   </url><url>
     <loc>https://mrleidesen.github.io/posts/request_download/</loc>
     <lastmod>2022-04-29T17:09:30+08:00</lastmod>
