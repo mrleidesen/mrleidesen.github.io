@@ -7,16 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 29 Apr 2022 17:09:30 +0800</lastBuildDate><atom:link href="https://mrleidesen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>umi request 下载数据流</title>
-      <link>https://mrleidesen.github.io/posts/umi_request_download/</link>
+      <title>通过接口下载文件</title>
+      <link>https://mrleidesen.github.io/posts/request_download/</link>
       <pubDate>Fri, 29 Apr 2022 17:09:30 +0800</pubDate>
       
-      <guid>https://mrleidesen.github.io/posts/umi_request_download/</guid>
-      <description>前言 今天接了个需求，用文件名去请求，然后后端返回数据回来，前端下载。以前都是 location 直接跳转下载，第一次用请求去下，踩了一点点坑。
-问题 先是网上搜了一下，大部分人的接口返回后，可以直接 res =&amp;gt; res.blob() 拿到 blob 数据，但是我这边后端返回不能直接这样子拿，返回的是一个 ReadableStream 的 body ，所以到手需要读取一下。
-如果用 fetch 的话可以直接 res =&amp;gt; res.blob() ，但是奇怪的是内容是空，状态码是 304 ，不知道后端那边是怎么处理的。
-读取 主要参考了 MDN 的这篇文章 使用可读文件流 。可以自己封装一下读取的方法
-export async function getReadableStreamInfo( reader: ReadableStreamDefaultReader ) { const stream = new ReadableStream({ start(controller) { return pump(); function pump(): any { return reader.read().then(({ done, value }) =&amp;gt; { if (done) { controller.close(); return; } controller.enqueue(value); return pump(); }); } }, }); const response = new Response(stream); return await response.</description>
+      <guid>https://mrleidesen.github.io/posts/request_download/</guid>
+      <description>前言 今天接了个需求，用文件名去请求，然后后端返回数据回来，前端下载。以前都是 location 直接跳转下载。
+下载 下载通过原生的 fetch 接口来进行，相关文档。因为原来请求是用 umi-request ，拦截器做了配置都不针对下载相关，所以会出问题，懒得改直接就封装一个 fetch 更方便
+正常请求如下
+export function downloadFileLink(link: string, fileName: string) { const a = document.createElement(&amp;#34;a&amp;#34;); document.body.appendChild(a); a.href = link; a.target = &amp;#34;_blank&amp;#34;; a.download = fileName; a.click(); a.remove(); window.URL.revokeObjectURL(link); } async function downloadFile(url: string) { try { const result = await fetch(url, { method: &amp;#34;GET&amp;#34;, headers: {}, // 自己的一些 token 相关  }); const blob = result.blob(); const link = window.URL.createObjectURL(blob); downloadFileLink(blob, &amp;#34;下载名&amp;#34;); } catch { // 相关的 catch 可以自行封装，fetch 只有在出现网络错误时会 catch  } } </description>
     </item>
     
     <item>
