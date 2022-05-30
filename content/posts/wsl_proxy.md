@@ -1,6 +1,6 @@
 ---
 title: "WSL2 配置代理"
-date: 2022-02-07T17:33:30+08:00
+date: 2022-05-30T11:08:30+08:00
 draft: false
 ---
 
@@ -68,3 +68,33 @@ git config --global https.proxy https://$host_ip:7890
 ```
 
 以上就可以正常走代理啦
+
+## v2rayN
+不过你可能没有用 Clash ，用的是 v2rayN ，没事，咱们也可以类似于上面这样做一个代理
+
+### 允许局域网
+首先在你的 v2rayN 中的 `参数设置` 里勾选 `允许来自局域网的连接` ，然后确定软件的端口，主要看局域网那边的端口，一般来说是这样的：
+1. http:10811
+2. socks5:10810
+
+### 编写文件
+在 WSL 里新建一个 `.proxyv2ray` 的文件，名字随便起就行
+```bash
+#!/bin/bash
+socks_port=10810
+host_ip=$(cat /etc/resolv.conf |grep "nameserver" |cut -f 2 -d " ")
+proxy="socks5://$host_ip:$socks_port"
+export ALL_PROXY=$proxy
+export http_proxy=$proxy
+export https_proxy=$proxy
+git config --global http.proxy $proxy
+git config --global https.proxy $proxy
+```
+
+正常情况下 v2rayN 用的是 socks5 ，如果不起作用，将 socks5 改成 http 的就行。
+
+然后
+```bash
+curl www.google.com
+```
+测试一下连接情况就可以了
